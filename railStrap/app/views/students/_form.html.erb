@@ -1,0 +1,84 @@
+
+
+	<%= form_for @student, :html => { :class => "form-horizontal" } do |f| %>
+
+	  <% if @student.errors.any? %>
+	    <div id="error_explanation">
+	      <h2>
+	        <%= pluralize(@student.errors.count, "error") %> Rectify the errors below for saving your student successfully:
+	      </h2>
+	      <ul>
+	        <% @student.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+		<div class="form-group">
+			<%=f.label :fname, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :fname, :class => "form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :lname, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :lname, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :studentid, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :studentid, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :admissionno, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :admissionno, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :fathername, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :fathername, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :phno, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :phno, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :place, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_field :place, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%=f.label :address, :class => "col-md-2 control-label" %>
+			<div class="col-md-6">
+				<%=f.text_area :address, :class => "col-md-6 form-control" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-6">
+		  		<%= f.submit :class => 'btn btn-primary' %>
+		  		<%= link_to 'Cancel', students_path, :class => "btn btn-danger" %>
+		  </div>
+		</div>
+
+	<% end %>
+
+
+	

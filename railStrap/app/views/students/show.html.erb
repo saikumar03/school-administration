@@ -1,0 +1,57 @@
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="page-header">
+				<h1>
+					<%= @student.fname %>
+					<%= @student.lname %>
+					<%= link_to '<i class="fa fa-chevron-circle-left"></i> Back'.html_safe, students_path(@student), :class => "btn btn-primary" %>
+					<span class="pull-right">
+						<%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_student_path(@student), :class => "btn btn-primary" %>
+						<%= link_to '<i class="fa fa-trash"></i> Destroy'.html_safe, student_path(@student), method: :delete, data: { confirm: 'Are you sure to delete this student?' }, :class => "btn btn-danger" %>
+					</span>
+				</h1>
+			</div>
+
+
+			<table class="table table-hover">
+				<tr>
+					<th>student id</th>
+					<td><%= @student.studentid %></td>
+				</tr>
+
+				<tr>
+					<th>Admission number</th>
+					<td><%= @student.admissionno %></td>
+				</tr>
+
+				<tr>
+					<th>Father name</th>
+					<td><%= @student.fathername %></td>
+				</tr>
+
+				<tr>
+					<th>phone number</th>
+					<td><%= @student.phno %></td>
+				</tr>
+
+				<tr>
+					<th>place</th>
+					<td><%= @student.place %></td>
+				</tr>
+
+				<tr>
+					<th>adress</th>
+					<td><%=@student.address %></td>
+				</tr>
+
+			</table>
+
+		</div>
+	</div>
+</div>
+
+
