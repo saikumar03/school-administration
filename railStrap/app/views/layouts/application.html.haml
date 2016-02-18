@@ -16,6 +16,10 @@
         /* The html and body elements cannot have any padding or margin. */
       }
 
+      .header-navbar {
+        margin: 0px;
+      }
+
       /* Wrapper for page content to push down footer */
       #wrap {
         min-height: 100%;
@@ -23,6 +27,7 @@
         height: 100%;
         /* Negative indent footer by its height */
         margin: 0 auto -60px;
+        margin-top: 50px;
         /* Pad bottom by footer height */
         padding: 0 0 60px;
       }
@@ -53,11 +58,29 @@
       code {
         font-size: 80%;
       }
+
+      .dashboard {
+        background-color: #428bca;
+        height: 900px;
+      }
+
+      .nav > li > a {
+        color: #fff;
+      }
+
+      .nav-stacked > li > a:hover {
+        color: #428bca;
+        background-color: #fff;
+        border-left: 2px solid #428bca;
+        border-radius: 0px;
+      }
+
+
   %body
     #wrap
       / Fixed navbar
-      .navbar.navbar-default.navbar-fixed-top
-        .container
+      .navbar.navbar-default.navbar-fixed-top.header-navbar
+        .container-fluid
           .navbar-header
             %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
               %span.icon-bar
@@ -83,15 +106,30 @@
                 %li= link_to 'Sign out', destroy_admin_session_path, method: :delete
           / /.nav-collapse
       / Begin page content
-      .container.container-main
-        - flash.each do |name, msg|
-          %div.alert.alert-info
-            = content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String)
-        - if show_title?
-          %h1= h yield(:title)
-        = yield
-    #footer
-      .container
+      .container-fluid.container-main
+        .row
+          .col-md-12
+            .col-md-2
+              %ul.nav.nav-pills.nav-stacked.dashboard.text-center
+                %li= link_to 'Home'
+                %li= link_to 'Schools'
+                %li= link_to 'Classes'
+                %li= link_to 'Teachers'
+                %li= link_to 'Students', controller: 'students'
+                %li= link_to 'Parents'
+            .col-md-10
+              - flash.each do |name, msg|
+                %div.alert.alert-info
+                  = content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String)
+              - if show_title?
+                %h1= h yield(:title)
+              = yield
+    #footer.navbar-fixed-bottom
+      .container-fluid
         %p.text-muted.credit
           = RailStrap::Application.config.application_name
           @ #{Time.now.year}.
+
+
+
+

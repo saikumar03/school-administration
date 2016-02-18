@@ -15,12 +15,13 @@
 		<th>phone number</th>
 		<th>place</th>
 		<th>adress</th>
-		<th colspan="3"></th>
+		<th colspan="2"></th>
+		<!-- <th colspan="3"></th> -->
 	</tr>
 
 	<% @students.each do |student| %>
 		<tr>
-			<td><%=student.fname %></td>
+			<td><%= link_to student.fname, student_path(student) %></td>
 			<td><%=student.lname %></td>
 			<td><%=student.studentid %></td>
 			<td><%=student.admissionno %></td>
@@ -28,9 +29,9 @@
 			<td><%=student.phno %></td>
 			<td><%=student.place %></td>
 			<td><%=student.address %></td>
-			<td><%= link_to 'Show', student_path(student) %></td>
-      <td><%= link_to 'Edit', edit_student_path(student) %></td>
-       <td><%= link_to 'Destroy', student_path(student), method: :delete, data: { confirm: 'Are you sure to delete this student?' } %></td>
+			<!-- <td><%= link_to 'Show', student_path(student) %></td> -->
+			<td><%= link_to '<i class="fa fa-pencil-square-o fa-2x"></i>'.html_safe, edit_student_path(student) %></td>
+			<td><%= link_to '<i class="fa fa-trash fa-2x"></i>'.html_safe, student_path(student), method: :delete, data: { confirm: 'Are you sure to delete this student?' } %></td>
 		</tr>
 	<% end %>
 </table>
