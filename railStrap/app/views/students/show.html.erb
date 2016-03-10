@@ -19,6 +19,15 @@
 
 			<table class="table table-hover">
 				<tr>
+					<td> <%= image_tag @student.image.url(:medium) %> </td>
+				</tr>
+
+				<tr>
+					<th> Gender </th>
+					<td> <%= @student.gender %> </td>
+				</tr>
+
+				<tr>
 					<th>student id</th>
 					<td><%= @student.studentid %></td>
 				</tr>
