@@ -41,6 +41,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'paperclip', '~> 3.0'
 
+gem 'bootstrap-datepicker-rails'
+
 # Twitter Bootstrap 3
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'

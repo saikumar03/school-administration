@@ -1,4 +1,7 @@
 class Student < ActiveRecord::Base
+	
+	validates :image, presence:true
+
 	validates :fname, presence:true,
 	                  length: { in: 5..20 }
 
